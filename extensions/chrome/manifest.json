@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "prodl youtube downloader Chrome extension",
+  "description": "Easily download from youtube",
+  "version": "0.5",
+
+  "permissions": [
+      "tabs",
+      "webRequest",
+      "http://*/",
+      "https://*/",
+      "*://*/"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.youtube.com/watch*",
+        "https://www.youtube.com/watch*"
+      ],
+      "js": ["/js/injected.js"],
+      "css": ["/style/css/injected.css"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["/js/background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "/style/img/icon.png",
+    "default_popup": "popup.html"
+  }
+  
+
+
+
+}
