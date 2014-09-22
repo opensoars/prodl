@@ -32,7 +32,6 @@ var HTTP_PORT = 3332,
     WS_PORT = 3334;
 
 
-
 /** App globals */
 process.DIRNAME = __dirname;
 process.DOWNLOADS = [];
