@@ -40,8 +40,8 @@ process.OS = require('os').platform();
 process.BITRATE = '128k';
 process.TEMPFOLDER = __dirname + '/temp/';
 process.DUMPFOLDER = __dirname + '/dump/';
-process.LOGPROGRESS = false;
-process.CPLOGALL = false;
+process.LOGPROGRESS = true;
+process.CPLOGALL = true;
 process.LOGNEXT = true;
 process.DownloadMaxRetries = 100;
 
