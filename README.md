@@ -37,11 +37,9 @@ A super easy to use Youtube downloader.
 ## Program [flow chart](https://raw.githubusercontent.com/opensoars/prodl/master/doc/flowCharts/flowChart.png)
 
 
-
-
-
 ## Todo
 * When a song is converted and saved in `temp` folder. We need a way to check if it's a valid mp3 file. Read metadata? Estimate byte size? I already noticed it sometimes is a 0 byte file, easy to fix from there!
+* Create a Github page for this project.
 
 
 ## Examples (API)
