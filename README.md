@@ -99,7 +99,7 @@ Download.prototype.getSource = function (){
 3. Same as 1, this time resulting in logging [Dl] @getSource  http.get error
 
 ## Install
-* Make ffmpeg available for command line.
+* Make libav/ffmpeg available for command line.
 * Clone source code. 
 * Add chrome extension from extension folder. 
 * Run the following command in terminal `node server.js /download/location`
