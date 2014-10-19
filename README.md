@@ -10,7 +10,7 @@ A super easy to use Youtube downloader.
 ## Why it owns all other Youtube downloaders
 * A platform independent system.
   - Linux using `avconv`
-  - Windows using `ffmpeg`
+  - Windows using `avconv` port called `ffmpeg`
 * Chrome extension which augments Youtube it's DOM.
 * Stay immersed in your musical journey by never leaving the Youtube page for a download. Everything is right there, where you need it, inside Youtube it's DOM!
 * Back-end system that takes hundreds of downloads at the same time.
