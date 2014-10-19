@@ -41,7 +41,7 @@ process.BITRATE = '128k';
 process.TEMPFOLDER = __dirname + '/temp/';
 process.DUMPFOLDER = __dirname + '/dump/';
 process.LOGPROGRESS = true;
-process.CPLOGALL = true;
+process.CPLOGALL = false;
 process.LOGNEXT = true;
 process.DownloadMaxRetries = 100;
 
