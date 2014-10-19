@@ -72,7 +72,7 @@ else{
 ```
 
 
-### Using the [f_](https://github.com/opensoars/f_) API
+### Using the (old) [f_](https://github.com/opensoars/f_) API
 It's like promises, really quite easy. Say you have a 'class' or better said, a prototype object. From which a lot of instances are drawn and they all perform asynchronous tasks which can take up to minutes to complete. And you aren't happy with christmas tree code, f_ comes in (with it's simple API).
 
 Let's start with required prototype object properties. (Using the `Download` as example)
@@ -86,7 +86,7 @@ Download.prototype.toReset = [ { d: {} } ];
 ```
 
 
-Now let's take a look at how to use the (old) f_ API. In this case inside the `Download` function scope.
+Now let's take a look at how to use the f_ API. In this case inside the `Download` function scope.
 ```js
 Download.prototype.getSource = function (){
   var self = this,
