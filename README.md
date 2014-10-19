@@ -86,7 +86,7 @@ Download.prototype.toReset = [ { d: {} } ];
 ```
 
 
-Now let's take a look at how to use the f_ API. In this case inside the `Download` function scope.
+Now let's take a look at how to use the (old) f_ API. In this case inside the `Download` function scope.
 ```js
 Download.prototype.getSource = function (){
   var self = this,
