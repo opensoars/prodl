@@ -9,7 +9,7 @@ A super easy to use Youtube downloader.
 
 
 ## Google update
-Google has updated the way Youtub (doesn't) handle page refreshes. Youtube now works as a single page application. The prodl front-end code has to be updated to support this new feature.
+Google has updated the way Youtub (doesn't) handle page refreshes. Youtube now works as a single page application. The prodl front-end code has to be updated to support this new feature. The extension popup windows still works like a charm though.
 
 
 ## Why it owns all other Youtube downloaders
