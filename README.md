@@ -125,5 +125,8 @@ Download.prototype.getSource = function (){
 ## Notice
 Google is using a lame enciphered signature with some videos, it's really quite weird. When you `GET` info about the video, you sometimes see this flag: `use_ciphered_signature: true`. So logically you think those videos are enciphered. But that isn't even true. It's really a LAME way to try to get security through obfuscation. But anyway, the decipher function sits obfuscated and minified somewhere in the Youtube source. But since they use the 'lovely' closure compiler, we can't even search for function names etc... We need to do some pattern recognition. Which ain't such a biggie, but Google updates this function multiple times per week. So far I've managed to get a working version of Prodl for every update, and all the logic is still in the code. So all previous ways of finding the decipher function will work forever. Meaning that at some point, all patterns are recognized and no more updates are required!
 
+## Google update
+Google has updated the way Youtub (doesn't) handle page refreshes. Youtube now works as a single page application. The prodl front-end code has to be updated to support this new feature.
+
 ## Stability
 Recent updates to version 0.0.14 increased stability a lot! There is better exception and error handling. And a fix for the 0 byte files is included. Since this update, I've been downloading like crazy without a single crash :)
