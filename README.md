@@ -44,7 +44,7 @@ Google has updated the way Youtub (doesn't) handle page refreshes. Youtube now w
 
 ## Todo
 * Create a Github page for this project.
-* Re-write almost everything in order to make it to the 0.1.0 verion (most logic IN methods can be re-used).
+* Re-write almost everything in order to make it to the 0.1.0 verion (logic in methods can be re-used).
   - New `f_` API
   - New `cls` API
   - New `ezlog` API
