@@ -1,3 +1,5 @@
+console.log('test');
+
 var startTime = new Date().getTime();
 
 var Ezlog = require('ezlog'),
