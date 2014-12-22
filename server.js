@@ -1,5 +1,3 @@
-console.log('test');
-
 var startTime = new Date().getTime();
 
 var Ezlog = require('ezlog'),
@@ -17,7 +15,6 @@ log('So, files will be stored in ' + process.DLFOLDER);
 log('Prodl version: '
   + cls({ s: 'bold', c: 'blue', t: require('./package.json').version })
 );
-
 
 /** Module Dependencies */
 var http = require('http'),
