@@ -13,7 +13,7 @@ log('So, files will be stored in ' + process.DLFOLDER);
 
 /** Simple version logger */
 log('Prodl version: '
-  + cls({ s: 'bold', c: 'blue', t: require('package.json').version })
+  + cls({ s: 'bold', c: 'blue', t: require('./package.json').version })
 );
 
 
