@@ -28,7 +28,7 @@ A super easy to use Youtube downloader.
 
 
 ## Install
-* Make libav/ffmpeg available for command line.
+* Make libav/ffmpeg available to command line.
 * Clone source code. 
 * Add chrome extension from extension folder. 
 * Run the following command in terminal `node server.js /download/location`
