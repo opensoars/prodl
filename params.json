@@ -1,5 +1,13 @@
 {
   "dl_folder": "",
+
+
   "http_port": "3333",
-  "ws_port": "3334"
+  "ws_port": "3334",
+
+
+  "log_all": true,
+
+
+  "max_retries": "10"
 }
