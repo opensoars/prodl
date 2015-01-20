@@ -1,3 +1,5 @@
+/** dev **/
+
 var startTime = new Date().getTime();
 
 var Ezlog = require('ezlog'),
