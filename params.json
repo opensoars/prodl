@@ -1,8 +1,8 @@
 {
-  "dl_dir": "",
+  "dl_dir": "D:/music/temp_prodl",
 
-
-  "http_port": "3333",
+  "app_port": "3332",
+  "http_server_port": "3333",
   "ws_port": "3334",
 
 

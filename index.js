@@ -11,9 +11,6 @@
   // App APIs namespace
   app.apis = {};
 
-  // Downloads collection
-  app.downloads = [];
-
 
   /**
    *
@@ -21,6 +18,7 @@
    *
    */
   app.fs = require('fs');
+  app.qs = require('querystring');
   app.cls = require('opensoars_cls');
   app.Ezlog = require('ezlog');
 
@@ -44,6 +42,9 @@
   // Require user definable parameters
   app.params = require('./params.json');
 
+  // Downloads collection
+  app.downloads = require('./lib/collections/downloads.js');
+
   // Servers functionality
   app.http_server = require('./lib/servers/http.js');
   app.ws_server = require('./lib/servers/ws.js');
@@ -63,8 +64,10 @@
    */
   if(!app.params.dl_dir)
     return app.logErr('No dl_dir specified in params.json');
-  if(!app.params.http_port)
-    return app.logErr('No http_port specified in params.json');
+  if(!app.params.app_port)
+    return app.logErr('No app_port specified in params.json');
+  if(!app.params.http_server_port)
+    return app.logErr('No http_server_port specified in params.json');
   if(!app.params.ws_port)
     return app.logErr('No ws_port specified in params.json');
 
@@ -87,7 +90,7 @@
 
   // Initialize the http server
   app.http_server.instance = app.http_server.create(app.apis.http)
-    .listen(process.app.params.http_port);
+    .listen(process.app.params.http_server_port);
 
 
 }());
