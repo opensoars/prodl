@@ -38,4 +38,4 @@ A super easy to use Youtube downloader.
 
 
 ## License
-[MIT License](https://github.com/opensoars/prodl/blob/master/MITlicense)
+[MIT License](https://github.com/opensoars/prodl/blob/dev/LICENSE)
