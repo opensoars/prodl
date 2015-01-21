@@ -1,14 +1,23 @@
 (function (){
 
+  var start_date = new Date().getTime(),
+      done_date = 0,
+      time_taken = 0;
+
+
   /**
    *
-   * App namespacing/variables
+   * App namespacing
    *
    */ 
   var app = {};
   process.app = app;
 
-
+  /**
+   *
+   * App modules
+   * 
+   */
   app.modules = {
     fs: require('fs'),
     qs: require('querystring'),
@@ -18,30 +27,52 @@
   };
 
 
+  /**
+   *
+   * Get/check/fix user definable parameters
+   *
+   */
+  app.params = require('./params.json');
+
+  if(!app.params.dl_dir)
+    throw 'No dl_dir specified in params.json';
+  if(!app.params.app_port)
+    throw 'No app_port specified in params.json';
+  if(!app.params.http_api_port)
+    throw 'No http_api_port specified in params.json';
+  if(!app.params.ws_port)
+    throw 'No ws_port specified in params.json';
+
+  if(!app.params.max_retries)
+    app.params.max_retries = 10;
+  if(!app.params.log && app.params.log !== false)
+    app.params.log = true;
+
+
+  /**
+   *
+   * App variables
+   * 
+   */
   app.api = {
     http: {
       url: '/api',
-      url_re: /^\/api\/?/,
-      log: new app.modules.Ezlog(['[HTTP API]', 'blue', 'bold'])
+      url_re: /^\/api\/?/
     }
   };
 
 
   /**
    *
-   * App logger/cli styling
+   * Setup all loggers
    *
    */
-  app.log = new app.modules.Ezlog(['[app]', 'green']);
-  app.logErr = new app.modules.Ezlog(['[app]', 'green'], ['red']);
-  app.logWarn = new app.modules.Ezlog(['[app]', 'green'], ['yellow']);
-
-
+  require('./lib/loggers');
 
 
   /**
    *
-   * App requirements
+   * App libraries
    *
    */
   app.downloads = require('./lib/collections/downloads.js');
@@ -54,29 +85,7 @@
 
   /**
    *
-   * Get/check/fix user definable parameters
-   *
-   */
-  app.params = require('./params.json');
-
-  if(!app.params.dl_dir)
-    return app.logErr('No dl_dir specified in params.json');
-  if(!app.params.app_port)
-    return app.logErr('No app_port specified in params.json');
-  if(!app.params.http_server_port)
-    return app.logErr('No http_server_port specified in params.json');
-  if(!app.params.ws_port)
-    return app.logErr('No ws_port specified in params.json');
-
-  if(!app.params.max_retries)
-    app.params.max_retries = 10;
-  if(!app.params.log_all)
-    app.params.log_all = true;
-
-
-  /**
-   *
-   * Initialization
+   * Initialize
    *
    */
 
@@ -84,8 +93,23 @@
     dir: __dirname + '/dump/'
   });
 
+
+  // Start listening for HTTP requests
   app.http.server = app.http.create(app.http.listener)
-    .listen(app.params.http_server_port);
+    .listen(app.params.http_api_port);
+
+  if(app.params.log)
+    app.log('HTTP server listening at port: ' + app.params.http_api_port);
+
+
+  // Startup info
+  done_date = new Date().getTime();
+  app.time_taken = done_date - start_date;
+
+  if(app.params.log)
+    app.log('Launched in ' +  app.time_taken + ' ms\n'
+      + '- - - - - - - - - - - - - - - - - - - - - - - - -');
+
 
 
 }());
