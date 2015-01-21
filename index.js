@@ -13,6 +13,7 @@
   var app = {};
   process.app = app;
 
+
   /**
    *
    * App modules
@@ -61,6 +62,8 @@
     }
   };
 
+  app.dump = {};
+
 
   /**
    *
@@ -107,10 +110,8 @@
   app.time_taken = done_date - start_date;
 
   if(app.params.log)
-    app.log('Launched in ' +  app.time_taken + ' ms\n'
+    app.log('Ready, launched in ' +  app.time_taken + ' ms\n'
       + '- - - - - - - - - - - - - - - - - - - - - - - - -');
-
-
 
 }());
 
