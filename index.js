@@ -9,19 +9,21 @@
   process.app = app;
 
 
-  app.api = {
-    http: {
-      url: '/api',
-      url_re: /^\/api\/?/
-    }
-  };
-
   app.modules = {
     fs: require('fs'),
     qs: require('querystring'),
     http: require('http'),
     cls: require('opensoars_cls'),
     Ezlog: require('ezlog')
+  };
+
+
+  app.api = {
+    http: {
+      url: '/api',
+      url_re: /^\/api\/?/,
+      log: new app.modules.Ezlog(['[HTTP API]', 'blue', 'bold'])
+    }
   };
 
 
@@ -35,21 +37,18 @@
   app.logWarn = new app.modules.Ezlog(['[app]', 'green'], ['yellow']);
 
 
+
+
   /**
    *
    * App requirements
    *
    */
-
-  // Downloads collection
   app.downloads = require('./lib/collections/downloads.js');
 
-
-  // Servers functionality
   app.http = require('./lib/servers/http/');
   app.ws = require('./lib/servers/ws');
 
-  // Dump utility
   app.Dump = require('./lib/dump');
 
 
@@ -85,8 +84,6 @@
     dir: __dirname + '/dump/'
   });
 
-
-  // Initialize the http server
   app.http.server = app.http.create(app.http.listener)
     .listen(app.params.http_server_port);
 
