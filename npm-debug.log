@@ -1,0 +1,83 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'nodemon@0.0.55',
+1 verbose cli   '-g' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.34
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ 'nodemon@0.0.55', null ]
+6 verbose cache add name=undefined spec="nodemon@0.0.55" args=["nodemon@0.0.55",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'nodemon@0.0.55',
+7 verbose parsed url   path: 'nodemon@0.0.55',
+7 verbose parsed url   href: 'nodemon@0.0.55' }
+8 verbose cache add name="nodemon" spec="0.0.55" args=["nodemon","0.0.55"]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: '0.0.55',
+9 verbose parsed url   path: '0.0.55',
+9 verbose parsed url   href: '0.0.55' }
+10 verbose addNamed [ 'nodemon', '0.0.55' ]
+11 verbose addNamed [ '0.0.55', '0.0.55' ]
+12 silly lockFile 17376258-nodemon-0-0-55 nodemon@0.0.55
+13 verbose lock nodemon@0.0.55 C:\Users\S\AppData\Roaming\npm-cache\17376258-nodemon-0-0-55.lock
+14 verbose request where is /nodemon
+15 verbose request registry https://registry.npmjs.org/
+16 verbose request id 6cbc0c376b0ef0c1
+17 verbose url raw /nodemon
+18 verbose url resolving [ 'https://registry.npmjs.org/', './nodemon' ]
+19 verbose url resolved https://registry.npmjs.org/nodemon
+20 verbose request where is https://registry.npmjs.org/nodemon
+21 info trying registry request attempt 1 at 09:45:34
+22 verbose etag "EMTIECITRIDOMTFR44KU28HQ1"
+23 http GET https://registry.npmjs.org/nodemon
+24 http 200 https://registry.npmjs.org/nodemon
+25 silly registry.get cb [ 200,
+25 silly registry.get   { date: 'Wed, 21 Jan 2015 08:45:26 GMT',
+25 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+25 silly registry.get     etag: '"IUJX0OH51UFRZBQNJN47SWDK"',
+25 silly registry.get     'content-type': 'application/json',
+25 silly registry.get     'cache-control': 'max-age=60',
+25 silly registry.get     'content-length': '141664',
+25 silly registry.get     'accept-ranges': 'bytes',
+25 silly registry.get     via: '1.1 varnish',
+25 silly registry.get     age: '13',
+25 silly registry.get     'x-served-by': 'cache-ams4141-AMS',
+25 silly registry.get     'x-cache': 'HIT',
+25 silly registry.get     'x-cache-hits': '1',
+25 silly registry.get     'x-timer': 'S1421829926.765751,VS0,VE0',
+25 silly registry.get     vary: 'Accept',
+25 silly registry.get     'keep-alive': 'timeout=10, max=50',
+25 silly registry.get     connection: 'Keep-Alive' } ]
+26 silly lockFile 17376258-nodemon-0-0-55 nodemon@0.0.55
+27 silly lockFile 17376258-nodemon-0-0-55 nodemon@0.0.55
+28 error Error: version not found: nodemon@0.0.55
+28 error     at C:\Program Files\nodejs\node_modules\npm\lib\cache\add-named.js:125:12
+28 error     at saved (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:167:7)
+28 error     at Object.oncomplete (fs.js:108:15)
+29 error If you need help, you may report this *entire* log,
+29 error including the npm and node versions, at:
+29 error     <http://github.com/npm/npm/issues>
+30 error System Windows_NT 6.1.7601
+31 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "nodemon@0.0.55" "-g"
+32 error cwd C:\dev\prodl_dev\prodl
+33 error node -v v0.10.34
+34 error npm -v 1.4.28
+35 verbose exit [ 1, true ]
