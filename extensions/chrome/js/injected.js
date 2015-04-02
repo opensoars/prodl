@@ -69,7 +69,7 @@ setTimeout(function (){ stopPing = true; }, 60000);
 /**
  * Globals
  */
-var SOCKET_URL = 'ws://localhost:3334',
+var SOCKET_URL = 'wss://localhost:3334',
     VIDEO_ID = getVideoId(window.location.href);
 
 var BTN_CONTAINER = document.getElementById('yt-masthead-signin');
@@ -147,7 +147,7 @@ function init(){
     setTimeout(function (){ dlBtn.blur(); }, 333);
   });
 
-
+  console.log(SOCKET_URL);
   var ws = new WebSocket(SOCKET_URL);
 
   ws.sendJSON = function (json){ ws.send(JSON.stringify(json)); };
@@ -237,4 +237,4 @@ function init(){
 } // /init
 
 
-} // /window.location.href.indexOf('youtube.com/watch?') !== -1
+}

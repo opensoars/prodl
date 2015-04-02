@@ -23,8 +23,7 @@ function checkIfUp(url, cb){
 /** Function used to request a download.
  * @arg    videoId {string}       YT video id to download
  * @arg    cb      {func}         Called when readyState = 4
- * @return         {null|string}  Null or error sting message
-
+ * @return         {null|string}  Null or error string message
  */
 function requestDownload(videoId, cb){
   var req = new XMLHttpRequest();

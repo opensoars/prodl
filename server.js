@@ -6,7 +6,7 @@ var Ezlog = require('ezlog'),
 
 
 /** Get 3rd command line argument, high on stack, so no reqs for nuthin */
-process.DLFOLDER = 'D:/Muziek/prodldev/';
+process.DLFOLDER = 'D:/music/prodldev/';
 if(!process.argv[2]) log('!process.argv[2]');
 else process.DLFOLDER = process.argv[2];
 log('So, files will be stored in ' + process.DLFOLDER);
@@ -75,7 +75,9 @@ var WebSocketServer = ws.Server,
 
 /** Websocket routing
  */
-wss.on('connection', wsAPI.onConnection);
+wss.on('connection', function(){
+  console.log('kekekeke');
+});
 
 
 /** How long did it take to boot Prodl? */
