@@ -1,0 +1,12 @@
+{
+  "dl_dir": "D:/music/temp_prodl",
+
+  "app_port": "3332",
+  "http_api_port": "3333",
+  "ws_port": "3334",
+
+
+  "use_log": true,
+
+  "max_retries": "10"
+}
