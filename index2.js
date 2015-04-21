@@ -16,7 +16,8 @@ app.modules = {
   qs: require('querystring'),
   http: require('http'),
   cls: require('opensoars_cls'),
-  Ezlog: require('ezlog')
+  Ezlog: require('ezlog'),
+  f_: require('f_')
 };
 
 /**
@@ -75,9 +76,13 @@ app.dump = app.libs.dump.create({
 app.libs.downloads = require('./lib/collections/downloads');
 app.downloads = app.libs.downloads;
 
+app.libs.Download = require('./lib/constructors/Download')(app);
+
+app.Download = app.libs.Download;
+
 // Download fixture
-app.downloads.add({ create_time: new Date().getTime() });
-app.downloads.add({ create_time: new Date().getTime() });
+//app.downloads.add( new app.Download({v: 'NnTg4vzli5s'}) );
+//app.downloads.add( new app.Download({v: '-n00X3fase4'}) );
 
 
 /**
@@ -93,8 +98,8 @@ app.http_api.handlers = app.libs.http.handlers;
  */
 app.http_api.router
   .get('/downloads', app.http_api.handlers.getAll)
-  .get('/downloads/:id', app.http_api.handlers.getById);
-
+  .get('/downloads/:id', app.http_api.handlers.getById)
+  .post('/downloads/:v', app.http_api.handlers.postNew);
 
 /**
  * Create server and start listening
@@ -104,3 +109,11 @@ app.http_api.server =
     .listen(app.params.http_api_port);
 
 app.http_api_log('Server listening at port ' + app.params.http_api_port);
+
+/**
+ * Start up/time notifier
+ */
+app.ready_time = new Date().getTime();
+app.time_taken = app.ready_time - app.start_time;
+
+app.log('Ready for business, launch time: ' + app.time_taken + 'ms');
