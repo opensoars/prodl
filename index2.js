@@ -15,10 +15,14 @@ app.modules = {
   fs: require('fs'),
   qs: require('querystring'),
   http: require('http'),
+  https: require('https'),
   cls: require('opensoars_cls'),
   Ezlog: require('ezlog'),
   f_: require('f_')
 };
+
+
+app.temp_dir = __dirname + '/temp';
 
 /**
  * HTTP API namespace
@@ -80,9 +84,20 @@ app.libs.Download = require('./lib/constructors/Download')(app);
 
 app.Download = app.libs.Download;
 
-// Download fixture
-//app.downloads.add( new app.Download({v: 'NnTg4vzli5s'}) );
-//app.downloads.add( new app.Download({v: '-n00X3fase4'}) );
+// Download fixtures
+setTimeout(function (){
+  var dl1 = app.modules.f_.setup(new app.Download({v: 'NnTg4vzli5s'})),
+      dl2 = app.modules.f_.setup(new app.Download({v: '-n00X3fase4'}));
+
+  dl1.start();
+  //dl2.start();
+
+  app.downloads
+    .add(dl1)
+    //.add(dl2);
+}, 500);
+
+
 
 
 /**
