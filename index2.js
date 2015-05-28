@@ -75,6 +75,11 @@ app.dump = app.libs.dump.create({
 });
 
 /**
+ * Require signature decipherer
+ */
+app.libs.Decipherer = require('./lib/Decipherer')(app);
+
+/**
  * Require downloads collection and assign shorthand to app namespace
  */
 app.libs.downloads = require('./lib/collections/downloads');
