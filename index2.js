@@ -1,6 +1,7 @@
 /**
  *
- * App namespace
+ * @desc Main application namespace
+ * @namespace
  *
  */
 var app = {};
@@ -12,7 +13,8 @@ app.time_taken = 0;
 
 /**
  *
- * Modules namespace
+ * @desc Application module namespace
+ * @namespace
  *
  */
 app.modules = {
@@ -30,7 +32,8 @@ app.temp_dir = __dirname + '/temp';
 
 /**
  *
- * HTTP API namespace
+ * @desc HTTP API namespace
+ * @namespace
  *
  */
 app.http_api = {};
@@ -42,27 +45,29 @@ app.static_api.dir = __dirname + '/public';
 
 /**
  *
- * Libraries namespace
+ * @desc Application libraries namespace
+ * @namespace
  *
  */
 app.libs = {};
 
 /**
  *
- * User defined paramaters namespace (params.json)
- *
+ * @desc User defined paramaters namespace (params.json)
+ * @namespace
+ * 
  */
 app.params = function (){
   var p = require('./params.json');
 
   if(!p.dl_dir)
-    throw 'No dl_dir specified in p.json';
+    throw 'No dl_dir specified in params.json';
   if(!p.app_port)
-    throw 'No app_port specified in p.json';
+    throw 'No app_port specified in params.json';
   if(!p.http_api_port)
-    throw 'No http_api_port specified in p.json';
+    throw 'No http_api_port specified in params.json';
   if(!p.ws_port)
-    throw 'No ws_port specified in p.json';
+    throw 'No ws_port specified in params.json';
 
   p.max_retries = p.max_retries ? p.max_retries : 10;
   p.use_log = p.use_log == false ? false : true;
@@ -71,45 +76,34 @@ app.params = function (){
 }();
 
 
-/**
- *
- * Add loggers to app namespace
- *
- */
+
+// Add loggers to app namespace
 app = require('./lib/logs')(app);
 
-/**
- *
- * Create an app dump helper function
- *
- */
+
+// Create an app dump helper function
 app.libs.dump = require('./lib/dump')(app);
 app.dump = app.libs.dump.create({
   dir: __dirname + '/dump/'
 });
 
-/**
- *
- * Require signature decipherer
- *
- */
+
+// Require decipher swap function solutions and f_ decipherer task list
+app.libs.swap_solutions = require('./lib/Decipherer/lib/swap_solutions.js');
 app.libs.Decipherer = require('./lib/Decipherer')(app);
 
-/**
- *
- * Require downloads collection and assign shorthand to app namespace
- *
- */
+
+// Require downloads collection and assign shorthand to app namespace
 app.libs.downloads = require('./lib/collections/downloads');
 app.downloads = app.libs.downloads;
 
+// Require Download f_ task list constructor and
+// assign shorthand to app namespace
 app.libs.Download = require('./lib/constructors/Download')(app);
-
 app.Download = app.libs.Download;
 
 
-
-// Download(s) fixtures
+////////////////////// Download fixture(s) \\\\\\\\\\\\\\\\\\\\\
 setTimeout(function (){
   var dl1 = app.modules.f_.setup(new app.Download({v: 'NnTg4vzli5s'})),
       dl2 = app.modules.f_.setup(new app.Download({v: '-n00X3fase4'}));
@@ -121,46 +115,31 @@ setTimeout(function (){
     .add(dl1)
     //.add(dl2);
 }, 500);
+////////////////////// Download fixture(s) \\\\\\\\\\\\\\\\\\\\\
 
 
-
-
-/**
- *
- * Require HTTP functionality
- *
- */
+// Require HTTP functionality
 app.libs.http = require('./lib/servers/http')(app);
 app.http_api.router = app.libs.http.router;
 app.http_api.handlers = app.libs.http.handlers;
 
 
-/**
- *
- * Routes
- *
- */
+// Setup routes
 app.http_api.router
   .get('/downloads', app.http_api.handlers.getAll)
   .get('/downloads/:id', app.http_api.handlers.getById)
   .post('/downloads/:v', app.http_api.handlers.postNew);
 
-/**
- *
- * Create server and start listening
- *
- */
+
+// Create server and start listening
 app.http_api.server =
   app.libs.http.create(app.http_api.router.listener)
     .listen(app.params.http_api_port);
 
 app.http_api_log('Server listening at port ' + app.params.http_api_port);
 
-/**
- *
- * Start up/time notifier
- *
- */
+
+// Start up/time notifier
 app.ready_time = new Date().getTime();
 app.time_taken = app.ready_time - app.start_time;
 
