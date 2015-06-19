@@ -89,7 +89,7 @@ app.dump = app.libs.dump.create({
 
 
 // Require decipher swap function solutions and f_ decipherer task list
-app.libs.swap_solutions = require('./lib/Decipherer/lib/swap_solutions.js');
+app.libs.swap_solutions = require('./lib/Decipherer/lib/swap_solutions.js')(app);
 app.libs.Decipherer = require('./lib/Decipherer')(app);
 
 
@@ -123,13 +123,11 @@ app.libs.http = require('./lib/servers/http')(app);
 app.http_api.router = app.libs.http.router;
 app.http_api.handlers = app.libs.http.handlers;
 
-
 // Setup routes
 app.http_api.router
   .get('/downloads', app.http_api.handlers.getAll)
   .get('/downloads/:id', app.http_api.handlers.getById)
   .post('/downloads/:v', app.http_api.handlers.postNew);
-
 
 // Create server and start listening
 app.http_api.server =
