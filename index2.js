@@ -28,7 +28,7 @@ app.modules = {
 };
 
 
-app.temp_dir = __dirname + '/temp';
+app.temp_dir = __dirname + '/temp/';
 
 /**
  *
