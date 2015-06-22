@@ -6,7 +6,10 @@
   "version": "0.0.15",
 
   "scripts": {
-    
+    "test": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha \"./tests/mocha/*.js\" && npm run coveralls",
+    "local_test": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha \"./tests/mocha/*.js\"",
+    "coveralls": "node node_modules/coveralls/bin/coveralls.js < coverage/lcov.info",
+    "doc": "node node_modules/jsdoc/jsdoc.js -c ./doc/config.json --readme readme.MD"
   },
 
   "engines" : {
@@ -24,7 +27,7 @@
     "mocha": "*",
     "istanbul": "*",
     "coveralls": "*",
-    "jsdoc": "*"
+    "jsdoc": "3.3.1"
   },
 
   "repository": {
