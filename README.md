@@ -34,7 +34,7 @@ A super easy to use Youtube downloader.
 * Run the following command in terminal `node server.js /download/location`
 
 
-## Program [flow chart](https://github.com/opensoars/prodl/blob/dev/doc/flowCharts/flowChart.png)
+## Program [flow chart](https://raw.githubusercontent.com/opensoars/prodl/master/doc/flowCharts/flowChart.png)
 
 
 ## License
