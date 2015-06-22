@@ -21,7 +21,10 @@
   },
 
   "devDependencies": {
-    
+    "mocha": "*",
+    "istanbul": "*",
+    "coveralls": "*",
+    "jsdoc": "*"
   },
 
   "repository": {
