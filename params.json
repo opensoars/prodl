@@ -8,5 +8,7 @@
 
   "use_log": true,
 
-  "max_retries": "10"
+  "max_retries": "10",
+
+  "bitrate": "128K"
 }

@@ -24,7 +24,9 @@ app.modules = {
   https: require('https'),
   cls: require('opensoars_cls'),
   Ezlog: require('ezlog'),
-  f_: require('f_')
+  f_: require('f_'),
+  spawn: require('child_process').spawn,
+  os: require('os')
 };
 
 
