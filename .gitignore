@@ -1,3 +1,6 @@
 dump/
+dump/*
 temp/
+temp/*
 node_modules/
+node_modules/*
