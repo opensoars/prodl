@@ -57,7 +57,7 @@ app.libs = {};
  *
  * @desc User defined paramaters namespace (params.json)
  * @namespace
- * 
+ *
  */
 app.params = function (){
   var p = require('./params.json');
