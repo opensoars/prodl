@@ -129,7 +129,8 @@ app.http_api.handlers = app.libs.http.handlers;
 app.http_api.router
   .get('/downloads', app.http_api.handlers.getAll)
   .get('/downloads/:id', app.http_api.handlers.getById)
-  .post('/downloads/:v', app.http_api.handlers.postNew);
+  .post('/downloads/:v', app.http_api.handlers.postNew)
+  .delete('/downloads/:id', app.http_api.handlers.deleteById);
 
 // Create server and start listening
 app.http_api.server =
