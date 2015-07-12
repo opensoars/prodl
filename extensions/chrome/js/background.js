@@ -1,5 +1,7 @@
 chrome.runtime.onMessage.addListener(function (req, sender, sendRes){
 
+  console.log(req);
+
   var http_req = new XMLHttpRequest();
 
   http_req.open('POST', 'http://localhost:3333/api/downloads/' + req.v);
@@ -11,5 +13,9 @@ chrome.runtime.onMessage.addListener(function (req, sender, sendRes){
   }
 
   http_req.send();
+
+  sendRes({
+    hello: 'world'
+  })
 
 });
