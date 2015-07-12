@@ -8,7 +8,10 @@
 
   "use_log": true,
 
-  "max_retries": "25",
+  "max_tries": {
+    "whole_list": 12,
+    "all_methods": 25
+  },
 
   "bitrate": "128K"
 }

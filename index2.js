@@ -42,7 +42,6 @@ app.http_api = {};
 app.http_api.base = '/api';
 
 app.static_api = {};
-app.static_api.base = '/static';
 app.static_api.dir = __dirname + '/public';
 
 /**
