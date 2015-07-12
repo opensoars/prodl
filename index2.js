@@ -6,6 +6,8 @@
  */
 var app = {};
 
+/** Bind root dirname to app */
+app.__dirname = __dirname;
 
 app.start_time = new Date().getTime();
 app.ready_time = 0;
@@ -83,11 +85,10 @@ app = require('./lib/logs')(app);
 
 
 // Create an app dump helper function
-app.libs.dump = require('./lib/dump')(app);
+app.libs.dump = require('./lib/utils/dump')(app);
 app.dump = app.libs.dump.create({
   dir: __dirname + '/dump/'
 });
-
 
 // Require decipher swap function solutions and f_ decipherer task list
 app.libs.swap_solutions = require('./lib/Decipherer/lib/swap_solutions.js')(app);
@@ -103,6 +104,7 @@ app.downloads = app.libs.downloads;
 app.libs.Download = require('./lib/constructors/Download')(app);
 app.Download = app.libs.Download;
 
+app.libs.cleanDir = require('./lib/utils/cleanDir')(app);
 
 ////////////////////// Download fixture(s) \\\\\\\\\\\\\\\\\\\\\
 setTimeout(function (){
@@ -124,6 +126,8 @@ setTimeout(function (){
 app.libs.http = require('./lib/servers/http')(app);
 app.http_api.router = app.libs.http.router;
 app.http_api.handlers = app.libs.http.handlers;
+
+app.libs.cleanDir('/temp');
 
 // Setup routes
 app.http_api.router
