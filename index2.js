@@ -60,7 +60,7 @@ app.libs = {};
  * @namespace
  *
  */
-app.params = function (){
+app.params = function () {
   var p = require('./params.json');
 
   if(!p.dl_dir)
