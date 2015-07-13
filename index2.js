@@ -60,23 +60,27 @@ app.libs = {};
  * @namespace
  *
  */
-app.params = function () {
+app.params = (function () {
   var p = require('./params.json');
 
-  if(!p.dl_dir)
+  if (!p.dl_dir) {
     throw 'No dl_dir specified in params.json';
-  if(!p.app_port)
+  }
+  if (!p.app_port) {
     throw 'No app_port specified in params.json';
-  if(!p.http_api_port)
+  }
+  if (!p.http_api_port) {
     throw 'No http_api_port specified in params.json';
-  if(!p.ws_port)
+  }
+  if (!p.ws_port) {
     throw 'No ws_port specified in params.json';
+  }
 
   p.max_retries = p.max_retries ? p.max_retries : 10;
-  p.use_log = p.use_log == false ? false : true;
+  p.use_log = p.use_log === false ? false : true;
 
   return p;
-}();
+}());
 
 // Add loggers to app namespace
 require('./lib/loggers')(app).forEach(function (logger){
