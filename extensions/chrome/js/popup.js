@@ -4,8 +4,17 @@
  *
  */
 var HTTP_URL = 'http://localhost:' + PORTS.http + '/api',
-    SOCKET_URL = 'ws://localhost:' + PORTS.ws + '/api',
-    HAS_INITIALIZED = false;
+    HAS_INITIALIZED = false,
+    PORTS = PORTS || {
+      app: 3332,
+      http: 3333,
+      ws: 3334
+    },
+    Ajax = Ajax || null;
+
+if (!ajax) {
+  return alert('!Ajax, library not included!');
+}
 
 
 /**
@@ -81,18 +90,19 @@ function pingServer(cb) {
 function handleInput() {
   ui.add('orange', 'Checking input for video id...');
 
-  var val = INPUT.value,
-      video_id = INPUT.value.length === 11
-        ? INPUT.value : getVideoId(INPUT.value);
+  
+  var video_id = INPUT.value.length === 11 ?
+        INPUT.value :
+        getVideoId(INPUT.value);
 
   if (video_id) {
     ui.add('green', 'Video id found: ' + video_id);
     INPUT.value = '';
 
     requestDownload(video_id, function (err){
-      if(!err) {
-        initSocket(video_id);
-      }
+      // !!
+      // Handle succes and or error
+      // !!
     });
   }
   else {
@@ -108,17 +118,13 @@ function requestDownload(video_id, cb) {
     url: HTTP_URL + '/downloads?v=' + video_id,
     method: 'POST',
     timeout: 2500
-  }).done(function (res){
+  }).done(function (/*res*/){
     ui.add('green', 'Download request success for video id: ' + video_id);
     cb();
-  }).fail(function (res){
+  }).fail(function (/*res*/){
     ui.add('red', 'Download request failed');
     cb('Download request failed');
   });
-}
-
-function initSocket(video_id) {
-  console.log('keke init');
 }
 
 /**

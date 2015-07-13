@@ -1,3 +1,5 @@
+chrome = chrome || {};
+
 /**
  * Top level application namespace.
  * @namespace
@@ -51,6 +53,8 @@ app.handlers = {
    * Gets used as a callback function for chrome.runTime.sendMessage.
    */
   onMsgRes: function (res) {
+    // DEV
+    console.log(res);
   }
 };
 
