@@ -78,13 +78,10 @@ app.params = function (){
   return p;
 }();
 
-
-
+// Add loggers to app namespace
 require('./lib/loggers')(app).forEach(function (logger){
   app[logger.name] = logger.func;
 });
-
-
 
 // Create an app dump helper function
 app.libs.dump = require('./lib/utils/dump')(app);
