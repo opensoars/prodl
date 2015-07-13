@@ -1,17 +1,18 @@
+/*
 (function (){
 
   var start_date = new Date().getTime(),
       done_date = 0,
       time_taken = 0;
 
-
+*/
   /**
    *
    * App namespacing
    *
    */ 
-  var app = {};
-  process.app = app;
+/*  var app = {};
+  process.app = app;*/
 
 
   /**
@@ -19,13 +20,13 @@
    * App modules
    * 
    */
-  app.modules = {
+/*  app.modules = {
     fs: require('fs'),
     qs: require('querystring'),
     http: require('http'),
     cls: require('opensoars_cls'),
     Ezlog: require('ezlog')
-  };
+  };*/
 
 
   /**
@@ -33,7 +34,7 @@
    * Get/check/fix user definable parameters
    *
    */
-  app.params = require('./params.json');
+/*  app.params = require('./params.json');
 
   if(!app.params.dl_dir)
     throw 'No dl_dir specified in params.json';
@@ -49,13 +50,13 @@
   if(!app.params.log && app.params.log !== false)
     app.params.log = true;
 
-
+*/
   /**
    *
    * App variables
    * 
    */
-  app.api = {
+/*  app.api = {
     http: {
       url: '/api',
       url_re: /^\/api\/?/
@@ -63,7 +64,7 @@
   };
 
   app.dump = {};
-
+*/
 
   /**
    *
@@ -74,29 +75,29 @@
   //
   // FIX THE LOGGIN SHIT
   //
-  process.logs = require('./lib/loggers');
+/*  process.logs = require('./lib/loggers');
 
-
+*/
   /**
    *
    * App libraries
    *
    */
-  app.downloads = require('./lib/collections/downloads.js');
+/*  app.downloads = require('./lib/collections/downloads.js');
 
   app.http = require('./lib/servers/http/');
   app.ws = require('./lib/servers/ws');
 
   app.Dump = require('./lib/dump');
 
-
+*/
   /**
    *
    * Initialize
    *
    */
 
-  app.dump = new app.Dump({
+/*  app.dump = new app.Dump({
     dir: __dirname + '/dump/'
   });
 
@@ -126,5 +127,5 @@
     app.log('Ready, launched in ' +  app.time_taken + ' ms');
 
 }());
-
+*/
 
