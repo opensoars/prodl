@@ -1,8 +1,6 @@
 /**
- *
- * @desc Main application namespace
+ * Main application namespace
  * @namespace
- *
  */
 var app = {};
 
@@ -14,10 +12,8 @@ app.ready_time = 0;
 app.time_taken = 0;
 
 /**
- *
- * @desc Application module namespace
+ * Application module namespace
  * @namespace
- *
  */
 app.modules = {
   fs: require('fs'),
@@ -35,10 +31,8 @@ app.modules = {
 app.temp_dir = __dirname + '/temp/';
 
 /**
- *
- * @desc HTTP API namespace
+ * HTTP API namespace
  * @namespace
- *
  */
 app.http_api = {};
 app.http_api.base = '/api';
@@ -47,18 +41,14 @@ app.static_api = {};
 app.static_api.dir = __dirname + '/public';
 
 /**
- *
- * @desc Application libraries namespace
+ * Application libraries namespace
  * @namespace
- *
  */
 app.libs = {};
 
 /**
- *
- * @desc User defined paramaters namespace (params.json)
+ * User defined paramaters namespace (params.json)
  * @namespace
- *
  */
 app.params = (function () {
   var p = require('./params.json');
