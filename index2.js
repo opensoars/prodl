@@ -90,7 +90,8 @@ app.dump = app.libs.dump.create({
 });
 
 // Require decipher swap function solutions and f_ decipherer task list
-app.libs.swap_solutions = require('./lib/Decipherer/lib/swap_solutions.js')(app);
+app.libs.swap_solutions =
+    require('./lib/Decipherer/lib/swap_solutions.js')(app);
 app.libs.Decipherer = require('./lib/Decipherer')(app);
 
 
