@@ -3,6 +3,7 @@ prodl
 
 A super easy to use Youtube downloader.
 
+[![Code Climate](https://codeclimate.com/github/opensoars/prodl/badges/gpa.svg)](https://codeclimate.com/github/opensoars/prodl)
 
 ---
 
