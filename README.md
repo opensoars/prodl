@@ -4,6 +4,8 @@ prodl
 A super easy to use Youtube downloader.
 
 [![Code Climate](https://codeclimate.com/github/opensoars/prodl/badges/gpa.svg)](https://codeclimate.com/github/opensoars/prodl)
+[![Dependency Status](https://david-dm.org/opensoars/prodl.svg)](https://david-dm.org/opensoars/prodl)
+[![devDependency Status](https://david-dm.org/opensoars/prodl/dev-status.svg)](https://david-dm.org/opensoars/prodl#info=devDependencies)
 
 ---
 
