@@ -1,4 +1,4 @@
-chrome = chrome || {};
+var chrome = chrome || {};
 
 /**
  * Top level application namespace.
