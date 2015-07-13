@@ -80,8 +80,10 @@ app.params = function (){
 
 
 
-// Add loggers to app namespace
-app = require('./lib/logs')(app);
+require('./lib/loggers')(app).forEach(function (logger){
+  app[logger.name] = logger.func;
+});
+
 
 
 // Create an app dump helper function
@@ -108,7 +110,7 @@ app.libs.cleanDir = require('./lib/utils/cleanDir')(app);
 
 ////////////////////// Download fixture(s) \\\\\\\\\\\\\\\\\\\\\
 setTimeout(function (){
-  var dl1 = app.modules.f_.setup(new app.Download({v: '_QeZVUO0DP0'}));
+  //var dl1 = app.modules.f_.setup(new app.Download({v: '_QeZVUO0DP0'}));
       //dl2 = app.modules.f_.setup(new app.Download({v: '-n00X3fase4'}));
 
 /*
@@ -122,12 +124,12 @@ setTimeout(function (){
 ////////////////////// Download fixture(s) \\\\\\\\\\\\\\\\\\\\\
 
 
+app.libs.cleanDir('/temp');
+
 // Require HTTP functionality
 app.libs.http = require('./lib/servers/http')(app);
 app.http_api.router = app.libs.http.router;
 app.http_api.handlers = app.libs.http.handlers;
-
-app.libs.cleanDir('/temp');
 
 // Setup routes
 app.http_api.router
