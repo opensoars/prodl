@@ -1,3 +1,5 @@
+chrome = chrome || {};
+
 /**
  * Top level application namespace.
  * @namespace
@@ -9,8 +11,8 @@ var app = {};
  * @namespace
  */
 app.handlers = {
-  onMsg: function (req, sender, sendRes){
-    app.helpers.sendMsg(req, sendRes)
+  onMsg: function (req, sender, sendRes) {
+    app.helpers.sendMsg(req, sendRes);
   }
 };
 
@@ -25,13 +27,13 @@ app.helpers = {
    * @param {object} req - Message data from injected.js
    * @param {function} sendRes - Sends message back to injected.js
    */
-  sendMsg: function (req, sendRes){
+  sendMsg: function (req, sendRes) {
     var http_req = new XMLHttpRequest();
 
     http_req.open('POST', 'http://localhost:3333/api/downloads/' + req.v);
 
     http_req.onreadystatechange = function (){
-      if(this.readyState === 4){
+      if (this.readyState === 4) {
         console.log('req done');
       }
     };
@@ -44,7 +46,7 @@ app.helpers = {
   /**
    * Used to bind all application events.
    */
-  addEventListeners: function (){
+  addEventListeners: function () {
     chrome.runtime.onMessage.addListener(app.handlers.onMsg);
   }
 };
@@ -52,7 +54,7 @@ app.helpers = {
 /**
  * Application initialization function.
  */
-app.init = function (){
+app.init = function () {
   app.helpers.addEventListeners();
 };
 
