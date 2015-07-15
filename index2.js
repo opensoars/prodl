@@ -102,16 +102,11 @@ app.libs.cleanDir = require('./lib/utils/cleanDir')(app);
 
 ////////////////////// Download fixture(s) \\\\\\\\\\\\\\\\\\\\\
 setTimeout(function (){
-  var dl1 = app.modules.f_.setup(new app.Download({v: '_QeZVUO0DP0'}));
-      //dl2 = app.modules.f_.setup(new app.Download({v: '-n00X3fase4'}));
-
-
-  dl1.start();
-  //dl2.start();
-
-  app.downloads
-    .add(dl1)
-    //.add(dl2);
+/*  app.downloads.add(
+    app.modules.f_.setup(
+      new app.Download({v: '_QeZVUO0DP0'})
+    ).start()
+  );*/
 }, 500);
 ////////////////////// Download fixture(s) \\\\\\\\\\\\\\\\\\\\\
 

@@ -158,6 +158,7 @@ var ui = {
 function getVideoId(url) {
   var video_id = '';
   try {
+    url = url.replace(/\#/, '');
     var q = url.split('/watch?')[1], qs = q.split('&');
     for (var i = 0; i < qs.length; i += 1) {
       var single_q = qs[i];
