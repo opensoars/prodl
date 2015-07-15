@@ -10,7 +10,8 @@
       "webRequest",
       "http://*/",
       "https://*/",
-      "*://*/"
+      "*://*/",
+      "bookmarks"
   ],
 
   "content_scripts": [

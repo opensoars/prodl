@@ -1,4 +1,60 @@
 /**
+ * Top level application namespace.
+ * @namespace
+ */
+var app = {};
+/**
+ * Application configuration namespace.
+ * @namespace
+ */
+app.config = {
+  http_url: 'http://localhost:' + (PORTS.http || 3333) + '/api',
+  has_initialized: false,
+
+  dependencies: ['Ajax']
+};
+/**
+ * 
+ * @namespace
+ */
+app.dom = {};
+/**
+ * 
+ * @namespace
+ */
+app.helpers = {};
+
+app.inits = {
+
+  checkDependencies: function () {
+    app.config.dependencies.forEach(function (dependency) {
+      if (!window[dependency]) {
+        throw new Error('app requires ' + dependency + ' to be present');
+      }
+    });
+  }
+
+};
+
+/** Called when app is ready */
+app.init = function () {
+  var init_name;
+
+  for (init_name in app.inits) {
+    if (app.inits[init_name].hasOwnProperty()) {
+      app.inits[init_name]();
+    }
+  }
+
+};
+
+// Leggo
+app.init();
+
+
+
+
+/**
  *
  * Globals
  *
@@ -12,9 +68,49 @@ var HTTP_URL = 'http://localhost:' + PORTS.http + '/api',
     },
     Ajax = Ajax || null;
 
-if (!ajax) {
-  return alert('!Ajax, library not included!');
+if (!Ajax) {
+  alert('!Ajax, library not included!');
 }
+
+
+
+var bm_input = document.getElementById('bm_input');
+
+function handleTree(tree) {
+  var prodl_id = null;
+
+  tree.forEach(function runBranch(branch) {
+
+    // If there are more children, keep running
+    if (branch.children && branch.children instanceof Array) {
+      if (branch.title === bm_input.value) {
+        prodl_id = branch.id;
+      }
+      branch.children.forEach(runBranch);
+    }
+    // If a branch does not have any children, it is a bookmark
+    else {
+      if (branch.parentId === prodl_id) {
+        requestDownload(getVideoId(branch.url), function (err) {
+          if (err) {
+            console.log('ERROR', err);
+          }
+          else {
+            console.log('SUCCES');
+          }
+        });
+      }
+    }
+  });
+}
+
+
+var bm_btn = document.getElementById('bm_btn');
+
+bm_btn.addEventListener('click', function () {
+  chrome.bookmarks.getTree(handleTree);
+});
+
 
 
 /**
@@ -115,7 +211,7 @@ function requestDownload(video_id, cb) {
   ui.add('orange', 'Sending download request for video id: ' + video_id + ' ...');
 
   new Ajax({
-    url: HTTP_URL + '/downloads?v=' + video_id,
+    url: HTTP_URL + '/downloads/' + video_id,
     method: 'POST',
     timeout: 2500
   }).done(function (/*res*/){
