@@ -1,4 +1,5 @@
-dump/
-temp/
+temp/*.mp3
+temp/*.m4a
+dump/*.dump
 node_modules/
 doc/jsdoc/

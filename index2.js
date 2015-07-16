@@ -112,6 +112,8 @@ setTimeout(function (){
 
 
 app.libs.cleanDir('/temp');
+app.libs.cleanDir('/dump');
+
 
 // Require HTTP functionality
 app.libs.http = require('./lib/servers/http')(app);
