@@ -19,6 +19,16 @@ A super easy to use Youtube downloader.
     - Downloads entire bookmark folders with search functionality
 
 
+## Whats next?
+* Tests
+* Code coverage
+* Better code quality
+* Better doc
+* Features
+    - Youtube playlist download functionality
+    - Youtube channel download functionality
+
+
 ## Why it rocks
 * A platform independent system.
   - Linux using `avconv`
