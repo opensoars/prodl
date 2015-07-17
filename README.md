@@ -11,7 +11,15 @@ A super easy to use Youtube downloader.
 ---
 
 
-## Why it owns all other Youtube downloaders
+## Currenlty working
+* Running back-end process
+* Working download button on Youtube video pages
+* Chrome extension
+    - Downloads when a video url or id is entered
+    - Downloads entire bookmark folders with search functionality
+
+
+## Why it rocks
 * A platform independent system.
   - Linux using `avconv`
   - Windows using the `avconv` port `ffmpeg`
