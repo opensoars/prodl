@@ -14,6 +14,7 @@ A super easy to use Youtube downloader.
 ## Currenlty working
 * Running back-end process
 * Working download button on Youtube video pages
+* RESTful API
 * Chrome extension
     - Downloads when a video url or id is entered
     - Downloads entire bookmark folders with search functionality
@@ -38,6 +39,7 @@ A super easy to use Youtube downloader.
 * Back-end system that takes hundreds of downloads at the same time.
 * Bidirectional communication between extension and back-end.
 * A simple extension popup which allows you to type a Youtube video id, and start a download from there.
+* RESTful HTTP API back-end.
 
 
 ## Dependencies
