@@ -112,7 +112,7 @@ setTimeout(function (){
 
 
 app.libs.cleanDir('/temp');
-app.libs.cleanDir('/dump');
+//app.libs.cleanDir('/dump');
 
 
 // Require HTTP functionality
@@ -140,3 +140,6 @@ app.ready_time = new Date().getTime();
 app.time_taken = app.ready_time - app.start_time;
 
 app.log('Ready for business, launch time: ' + app.time_taken + 'ms');
+
+
+//app.log(JSON.stringify(app.params, undefined, 2));
