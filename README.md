@@ -1,4 +1,4 @@
-prodl (WIP)
+prodl (MOVED TO [ytmp3dl-core](https://github.com/opensoars/ytmp3dl-core))
 =====
 
 A super easy to use Youtube downloader.
